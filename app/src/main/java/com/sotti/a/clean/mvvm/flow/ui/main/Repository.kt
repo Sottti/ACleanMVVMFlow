@@ -8,7 +8,7 @@ internal class Repository {
 	private val localDS = LocalDS()
 	private val remoteDS = RemoteDS()
 
-	fun getStrings(): Flow<String> = flow {
+	fun strings(): Flow<String> = flow {
 		localDS.strings().collect { emit(it) }
 			// This next line could be actually inserting into ROOM,
 			// which will create a new emission on the localDS flow.
